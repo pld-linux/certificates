@@ -34,6 +34,7 @@ Source13:	http://www.certum.pl/keys/class4.crt
 # Source13-md5:	933f3c7ce4b23c53976b9c6213668d8c
 Source14:	https://www.verisign.com/support/thawte-roots.zip 
 # Source14-md5:	30e458d601358ec9a863b893755cb8ab
+BuildRequires:	unzip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
