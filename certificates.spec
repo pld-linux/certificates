@@ -32,6 +32,8 @@ Source12:	http://www.certum.pl/keys/class3.crt
 # Source12-md5:	742d2ef3e7f68c635625151b9c60c938
 Source13:	http://www.certum.pl/keys/class4.crt
 # Source13-md5:	933f3c7ce4b23c53976b9c6213668d8c
+Source14:	https://www.verisign.com/support/thawte-roots.zip 
+# Source14-md5:	30e458d601358ec9a863b893755cb8ab
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -65,6 +67,10 @@ install %{SOURCE10} "Unizeto - old Certum Level I.crt"
 install %{SOURCE11} "Unizeto - old Certum Level II.crt"
 install %{SOURCE12} "Unizeto - old Certum Level III.crt"
 install %{SOURCE13} "Unizeto - old Certum Level IV.crt"
+unzip %{SOURCE14} '*.txt'
+for I in *.txt; do
+	mv "$I" "`echo $I | sed -e 's!txt!crt!'`"
+done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
