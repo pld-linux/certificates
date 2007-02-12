@@ -1,5 +1,5 @@
 Summary:	Root CA
-Summary(pl):	Certyfikaty
+Summary(pl.UTF-8):   Certyfikaty
 Name:		certificates
 Version:	1.1
 Release:	1
@@ -41,8 +41,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 This package contains Root CA derived from mod_ssl.
 
-%description -l pl
-Pakiet zawiera certyfikaty wyci±gniête z mod_ssl.
+%description -l pl.UTF-8
+Pakiet zawiera certyfikaty wyciÄ…gniÄ™te z mod_ssl.
 
 %prep
 %setup -q -n mod_ssl-2.8.15-1.3.28/pkg.sslcfg
