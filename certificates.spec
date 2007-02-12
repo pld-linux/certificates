@@ -1,5 +1,5 @@
 Summary:	Root CA
-Summary(pl.UTF-8):   Certyfikaty
+Summary(pl.UTF-8):	Certyfikaty
 Name:		certificates
 Version:	1.1
 Release:	1
