@@ -2,11 +2,11 @@ Summary:	Root CA
 Summary(pl.UTF-8):	Certyfikaty
 Name:		certificates
 Version:	1.1
-Release:	1
+Release:	2
 License:	distributable (?)
 Group:		Networking
-Source0:	http://www.modssl.org/source/mod_ssl-2.8.15-1.3.28.tar.gz
-# Source0-md5:	0f37d6efd51128f696000d73624f5aff
+Source0:	http://www.modssl.org/source/mod_ssl-2.8.30-1.3.39.tar.gz
+# Source0-md5:	66c1ad26954cb1abe59b42dab54d2cd1
 Source1:	cert-split
 Source2:	http://www.certum.pl/keys/CA.crt
 # Source2-md5:	2c8f9f661d1890b147269d8e86828ca9
@@ -33,7 +33,11 @@ Source12:	http://www.certum.pl/keys/class3.crt
 Source13:	http://www.certum.pl/keys/class4.crt
 # Source13-md5:	933f3c7ce4b23c53976b9c6213668d8c
 Source14:	https://www.verisign.com/support/thawte-roots.zip 
-# Source14-md5:	30e458d601358ec9a863b893755cb8ab
+# Source14-md5:	a3709cc0279ef3fca4f86ea775066b18
+Source15:	http://www.cacert.org/certs/root.txt
+# Source15-md5:	c2b19e437b9d06ce07780c6d1a99f27a
+Source16:	http://www.cacert.org/certs/class3.txt
+# Source16-md5:	dd1eaf46b691cfc9981ecceb2bd1906f
 BuildRequires:	unzip
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -45,7 +49,7 @@ This package contains Root CA derived from mod_ssl.
 Pakiet zawiera certyfikaty wyciągnięte z mod_ssl.
 
 %prep
-%setup -q -n mod_ssl-2.8.15-1.3.28/pkg.sslcfg
+%setup -q -n mod_ssl-2.8.30-1.3.39/pkg.sslcfg
 install %{SOURCE1} .
 
 %build
@@ -72,6 +76,8 @@ unzip %{SOURCE14} '*.txt'
 for I in *.txt; do
 	mv "$I" "`echo $I | sed -e 's!txt!crt!'`"
 done
+install %{SOURCE15} "CAcert - level1.crt"
+install %{SOURCE16} "CAcert - level3.crt"
 
 %clean
 rm -rf $RPM_BUILD_ROOT
