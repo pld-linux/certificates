@@ -1,3 +1,5 @@
+# TODO
+# - keep one: certificates.spec vs ca-certificates.spec
 Summary:	Root CA
 Summary(pl.UTF-8):	Certyfikaty
 Name:		certificates
